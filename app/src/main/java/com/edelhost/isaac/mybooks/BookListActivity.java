@@ -129,23 +129,19 @@ public class BookListActivity extends AppCompatActivity {
             }
 
 
-
-
-                  /*   View view = LayoutInflater.from(parent.getContext())
-                         .inflate(R.layout.book_list_content, parent, false);
-                return new ViewHolder(view);    */
-
-
         }
 
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).id);
+            //holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).titulo);
+            holder.mAutorView.setText(mValues.get(position).autor);
+
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
+
 
 
         }
@@ -158,11 +154,13 @@ public class BookListActivity extends AppCompatActivity {
         class ViewHolder extends RecyclerView.ViewHolder {
             final TextView mIdView;
             final TextView mContentView;
+            final TextView mAutorView;
 
             ViewHolder(View view) {
                 super(view);
                 mIdView = (TextView) view.findViewById(R.id.id_text);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                mAutorView = (TextView) view.findViewById(R.id.autor);
             }
         }
     }
