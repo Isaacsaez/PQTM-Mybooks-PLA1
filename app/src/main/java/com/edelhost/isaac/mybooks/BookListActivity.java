@@ -2,6 +2,7 @@ package com.edelhost.isaac.mybooks;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,11 @@ public class BookListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+    private static final Integer PAR = 1;
+    private static final Integer IMPAR = 2;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,11 +103,41 @@ public class BookListActivity extends AppCompatActivity {
         }
 
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.book_list_content, parent, false);
-            return new ViewHolder(view);
+        public int getItemViewType(int position) {
+            if (position % 2 == 0) {
+                return PAR;
+            } else {
+                return IMPAR;
+            }
         }
+
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View root = null;
+
+            if (viewType == PAR) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.book_list_content, parent, false);
+                return new ViewHolder(view);
+            } else {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.book_list_content_impar, parent, false);
+                return new ViewHolder(view);
+            }
+
+
+
+
+                  /*   View view = LayoutInflater.from(parent.getContext())
+                         .inflate(R.layout.book_list_content, parent, false);
+                return new ViewHolder(view);    */
+
+
+        }
+
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
@@ -110,6 +146,8 @@ public class BookListActivity extends AppCompatActivity {
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
+
+
         }
 
         @Override
