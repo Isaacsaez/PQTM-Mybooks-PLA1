@@ -10,6 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.edelhost.isaac.mybooks.dummy.BookItem;
+
+import java.util.List;
 
 /**
  * An activity representing a single Book detail screen. This
@@ -53,7 +58,11 @@ public class BookDetailActivity extends AppCompatActivity {
                     .add(R.id.book_detail_container, fragment)
                     .commit();
         }
+
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
