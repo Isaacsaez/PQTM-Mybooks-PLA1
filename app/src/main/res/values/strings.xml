@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">MyBooks</string>
     <string name="title_book_detail">Book Detail</string>
-    <string name="t_tulo">Título:</string>
-    <string name="autor">Autor:</string>
+
     <string name="fecha">Fecha:</string>
     <string name="descripci_n">Descripción:</string>
+    <string name="autor">Autor</string>
+    <string name="titulo_libro">Titulo Libro</string>
 </resources>

@@ -34,8 +34,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="D:\Copia NVME\Edelhost\Web\Mariacuentacuentos\web\portada kiram.jpg" />
-                                      <entry key="outputName" value="portada_sisu" />
+                                      <entry key="imageAsset" value="C:\Users\Isaac\Downloads\pexels-photo-415071.jpeg" />
+                                      <entry key="outputName" value="magen_libro" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -54,6 +54,11 @@
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>

@@ -134,7 +134,7 @@ public class BookListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            //holder.mIdView.setText(mValues.get(position).id);
+
             holder.mContentView.setText(mValues.get(position).titulo);
             holder.mAutorView.setText(mValues.get(position).autor);
 
@@ -152,13 +152,11 @@ public class BookListActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mIdView;
             final TextView mContentView;
             final TextView mAutorView;
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
                 mContentView = (TextView) view.findViewById(R.id.content);
                 mAutorView = (TextView) view.findViewById(R.id.autor);
             }
