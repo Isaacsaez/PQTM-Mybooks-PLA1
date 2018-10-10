@@ -54,7 +54,6 @@ public class BookDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.tv_desc)).setText(mItem.descripcion);
             ((ImageView)rootView.findViewById(R.id.iv_portada)).setImageResource(mItem.imagen);
         }
-
         return rootView;
     }
 
