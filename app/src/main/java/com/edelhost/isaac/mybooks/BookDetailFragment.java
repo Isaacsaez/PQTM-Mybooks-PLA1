@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.edelhost.isaac.mybooks.dummy.BookItem;
@@ -52,7 +53,9 @@ public class BookDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.tv_autor)).setText(mItem.autor);
             ((TextView) rootView.findViewById(R.id.tv_fecha)).setText(mItem.fecha);
             ((TextView) rootView.findViewById(R.id.tv_desc)).setText(mItem.descripcion);
+
         }
+
 
         return rootView;
     }
