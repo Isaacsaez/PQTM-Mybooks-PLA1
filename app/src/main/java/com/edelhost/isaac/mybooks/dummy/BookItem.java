@@ -1,29 +1,20 @@
 package com.edelhost.isaac.mybooks.dummy;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- * <p>
- * TODO: Replace all uses of this class before publishing your app.
- */
+// Clase que contiene los datos de los libros listados en la App MyBooks
 public class BookItem {
 
-    /**
-     * An array of sample (dummy) items.
-     */
+    // Creamos el array de libros a mostrar y un map del array
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
+
+    // Añadimos 2 Libros para la lista con sus diferentes campos
    static{
        // Añadimos 2 Libros para la lista
        addItem(new DummyItem("1","Las Fábulas de las Emociones", "María Valverde", "23-04-2017","Libro de emociones infantil"));
@@ -35,6 +26,8 @@ public class BookItem {
         ITEM_MAP.put(item.id, item);
     }
 
+
+    // creamos las variables para cada campo de los libros
     public static class DummyItem {
         public String id;
         public String titulo;

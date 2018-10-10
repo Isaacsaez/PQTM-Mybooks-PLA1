@@ -2,7 +2,6 @@ package com.edelhost.isaac.mybooks;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,32 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.edelhost.isaac.mybooks.dummy.BookItem;
-
 import java.util.List;
 
-/**
- * An activity representing a list of Books. This activity
- * has different presentations for handset and tablet-size devices. On
- * handsets, the activity presents a list of items, which when touched,
- * lead to a {@link BookDetailActivity} representing
- * item details. On tablets, the activity presents the list of items and
- * item details side-by-side using two vertical panes.
- */
+// Clase para la Actividad principal de la app MyBooks
 public class BookListActivity extends AppCompatActivity {
 
-    /**
-     * Whether or not the activity is in two-pane mode, i.e. running on a tablet
-     * device.
-     */
+    //variable para almacenar la info de la posicion del dispositivo (vertical/horizontal)
     private boolean mTwoPane;
+
+    // variables par/impar para definir los diferentes layouts de la lista.
     private static final Integer PAR = 1;
     private static final Integer IMPAR = 2;
 
 
 
-
+    // Asignamos el layout correspondiente en la Actividad con su Barra superior
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,20 +37,19 @@ public class BookListActivity extends AppCompatActivity {
         toolbar.setTitle(getTitle());
 
 
-
+        // Mostrar el book_detail_container (FrameLayout) si el dispositivo esta en horizontal
         if (findViewById(R.id.book_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-w900dp).
-            // If this view is present, then the
-            // activity should be in two-pane mode.
             mTwoPane = true;
         }
 
+        // Mostrar el book_list (RecyclerView)
         View recyclerView = findViewById(R.id.book_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
     }
 
+
+    // Código de configuración y funcionalidad del RecyclerView, por ej. que sea clicable, etc..
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, BookItem.ITEMS, mTwoPane));
     }
@@ -94,6 +82,8 @@ public class BookListActivity extends AppCompatActivity {
             }
         };
 
+
+        // Adapter necesario para el RecyclerView
         SimpleItemRecyclerViewAdapter(BookListActivity parent,
                                       List<BookItem.DummyItem> items,
                                       boolean twoPane) {
@@ -102,6 +92,8 @@ public class BookListActivity extends AppCompatActivity {
             mTwoPane = twoPane;
         }
 
+
+        // Código para asignar cada posición del array de libros a par o impar
         @Override
         public int getItemViewType(int position) {
             if (position % 2 == 0) {
@@ -111,6 +103,8 @@ public class BookListActivity extends AppCompatActivity {
             }
         }
 
+
+        // Asignamos un layout u otro en el caso de que su posición sea par o impar
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -127,18 +121,14 @@ public class BookListActivity extends AppCompatActivity {
                         .inflate(R.layout.book_list_content_impar, parent, false);
                 return new ViewHolder(view);
             }
-
-
         }
 
-
+        // Asignamos los datos correspondientes a los campos de los libros
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             //holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).titulo);
             holder.mAutorView.setText(mValues.get(position).autor);
-
-
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
 
@@ -146,6 +136,7 @@ public class BookListActivity extends AppCompatActivity {
 
         }
 
+        //Recogemos cada View para insertarle los datos del libro
         @Override
         public int getItemCount() {
             return mValues.size();
